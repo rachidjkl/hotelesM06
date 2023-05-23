@@ -11,7 +11,8 @@ namespace RetoHotelesM06.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Forms;
+
     public partial class hoteles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,5 +33,10 @@ namespace RetoHotelesM06.Models
         public virtual ICollection<act_hotel> act_hotel { get; set; }
         public virtual cadenas cadenas { get; set; }
         public virtual ciudades ciudades { get; set; }
+
+        public static implicit operator hoteles(DataGridViewCell v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

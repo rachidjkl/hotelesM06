@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace RetoHotelesM06.Models
 {
     public static class CadenasOrm{
+        public static string SelectCadenas(string cif)
+        {
+            cadenas _cadenas = Orm.bd.cadenas.FirstOrDefault(t => t.cif == cif);
+            return _cadenas.nombre;
+        }
+
         public static List<cadenas> Select()
         {
-            List<cadenas> _cadenas = (
-                from c in Orm.bd.cadenas
-                select c).ToList();
-
-            return _cadenas;
+            return Orm.bd.cadenas.ToList();
         }
     }
 }
