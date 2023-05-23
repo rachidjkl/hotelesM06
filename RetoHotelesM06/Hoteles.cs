@@ -30,11 +30,17 @@ namespace RetoHotelesM06
 
         private void ButtonHoteles_Click(object sender, EventArgs e)
         {
-
+            bindingSourceHoteles.DataSource = HotelesOrm.Select();
         }
 
         private void bindingSourceHoteles_CurrentChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonCadenasHoteles_Click(object sender, EventArgs e)
+        {
+            bindingSourceHoteles.DataSource = CadenasOrm.Select();
 
         }
     }
