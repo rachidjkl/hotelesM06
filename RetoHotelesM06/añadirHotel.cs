@@ -47,7 +47,34 @@ namespace RetoHotelesM06
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            
+            hoteles hotelToUpdate = cogerHotel();
+
+            string msgError = HotelesOrm.UpdateHotel(hotelSelec, hotelToUpdate);
+            if (msgError == "")
+            {
+                MessageBox.Show("Updated", "actualizado", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private hoteles cogerHotel()
+        {
+            hoteles hotelToUpdate = new hoteles()
+            {
+                id_ciudad = hotelSelec.id_ciudad,
+                direccion = textBoxDireccion.Text,
+                telefono = int.Parse(textBoxTelefono.Text),
+                tipo = textBoxUbicacion.Text,
+                categoria = int.Parse(textBoxCategoria.Text),
+                cadenas = new cadenas() { nombre = comboBoxCadenaHotel.SelectedItem.ToString() },
+                ciudades = new ciudades() { nombre = comboBoxCiudad.SelectedItem.ToString() },
+            };
+
+            return hotelToUpdate;
         }
     }
 }
