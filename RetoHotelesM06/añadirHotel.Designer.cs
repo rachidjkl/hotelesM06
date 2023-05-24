@@ -55,6 +55,10 @@
             this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_act = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoteles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
@@ -261,9 +265,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
+            this.id_ciudad,
+            this.id_act,
+            this.actividades,
+            this.hoteles,
             this.gradoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.actividadesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(442, 258);
+            this.dataGridView1.Location = new System.Drawing.Point(432, 258);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(366, 127);
             this.dataGridView1.TabIndex = 44;
@@ -273,6 +281,30 @@
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // id_ciudad
+            // 
+            this.id_ciudad.DataPropertyName = "id_ciudad";
+            this.id_ciudad.HeaderText = "id_ciudad";
+            this.id_ciudad.Name = "id_ciudad";
+            // 
+            // id_act
+            // 
+            this.id_act.DataPropertyName = "id_act";
+            this.id_act.HeaderText = "id_act";
+            this.id_act.Name = "id_act";
+            // 
+            // actividades
+            // 
+            this.actividades.DataPropertyName = "actividades";
+            this.actividades.HeaderText = "actividades";
+            this.actividades.Name = "actividades";
+            // 
+            // hoteles
+            // 
+            this.hoteles.DataPropertyName = "hoteles";
+            this.hoteles.HeaderText = "hoteles";
+            this.hoteles.Name = "hoteles";
             // 
             // gradoDataGridViewTextBoxColumn
             // 
@@ -347,6 +379,10 @@
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_ciudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_act;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actividades;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hoteles;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoDataGridViewTextBoxColumn;
     }
 }

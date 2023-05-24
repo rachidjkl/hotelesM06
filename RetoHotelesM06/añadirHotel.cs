@@ -87,8 +87,8 @@ namespace RetoHotelesM06
                 act_hotel actividad = new act_hotel();
 
                 actividad.id_act = Convert.ToInt32(row.Cells[2].Value);
-                actividad.nombre = row.Cells[1].Value.ToString();
-                actividad.grado = Convert.ToInt32(row.Cells[3].Value);
+                actividad.nombre = (string)row.Cells[0].Value;
+                actividad.grado = Convert.ToInt32(row.Cells[5].Value);
                 actividad.id_ciudad = (int)comboBoxCiudad.SelectedValue;
                 listaActividades.Add(actividad);
             }
