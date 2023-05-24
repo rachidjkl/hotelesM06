@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RetoHotelesM06.Models
 {
@@ -25,8 +26,10 @@ namespace RetoHotelesM06.Models
                 hotelToUpdate.direccion = update.direccion;
                 hotelToUpdate.act_hotel = update.act_hotel;
 
+
             }
             return Orm.MySaveChanges();
         }
+
     }
 }

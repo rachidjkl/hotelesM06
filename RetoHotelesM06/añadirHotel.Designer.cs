@@ -54,12 +54,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actividadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).BeginInit();
@@ -264,23 +260,13 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idciudadDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.idactDataGridViewTextBoxColumn,
-            this.gradoDataGridViewTextBoxColumn,
-            this.actividadesDataGridViewTextBoxColumn,
-            this.hotelesDataGridViewTextBoxColumn});
+            this.gradoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.actividadesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(442, 258);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(366, 127);
             this.dataGridView1.TabIndex = 44;
-            // 
-            // idciudadDataGridViewTextBoxColumn
-            // 
-            this.idciudadDataGridViewTextBoxColumn.DataPropertyName = "id_ciudad";
-            this.idciudadDataGridViewTextBoxColumn.HeaderText = "id_ciudad";
-            this.idciudadDataGridViewTextBoxColumn.Name = "idciudadDataGridViewTextBoxColumn";
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -288,29 +274,11 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             // 
-            // idactDataGridViewTextBoxColumn
-            // 
-            this.idactDataGridViewTextBoxColumn.DataPropertyName = "id_act";
-            this.idactDataGridViewTextBoxColumn.HeaderText = "id_act";
-            this.idactDataGridViewTextBoxColumn.Name = "idactDataGridViewTextBoxColumn";
-            // 
             // gradoDataGridViewTextBoxColumn
             // 
             this.gradoDataGridViewTextBoxColumn.DataPropertyName = "grado";
             this.gradoDataGridViewTextBoxColumn.HeaderText = "grado";
             this.gradoDataGridViewTextBoxColumn.Name = "gradoDataGridViewTextBoxColumn";
-            // 
-            // actividadesDataGridViewTextBoxColumn
-            // 
-            this.actividadesDataGridViewTextBoxColumn.DataPropertyName = "actividades";
-            this.actividadesDataGridViewTextBoxColumn.HeaderText = "actividades";
-            this.actividadesDataGridViewTextBoxColumn.Name = "actividadesDataGridViewTextBoxColumn";
-            // 
-            // hotelesDataGridViewTextBoxColumn
-            // 
-            this.hotelesDataGridViewTextBoxColumn.DataPropertyName = "hoteles";
-            this.hotelesDataGridViewTextBoxColumn.HeaderText = "hoteles";
-            this.hotelesDataGridViewTextBoxColumn.Name = "hotelesDataGridViewTextBoxColumn";
             // 
             // añadirHotel
             // 
@@ -378,11 +346,7 @@
         private System.Windows.Forms.BindingSource cadenasBindingSource;
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idciudadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actividadesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelesDataGridViewTextBoxColumn;
     }
 }

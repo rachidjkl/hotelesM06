@@ -72,9 +72,28 @@ namespace RetoHotelesM06
                 categoria = int.Parse(textBoxCategoria.Text),
                 cadenas = new cadenas() { nombre = comboBoxCadenaHotel.SelectedItem.ToString() },
                 ciudades = new ciudades() { nombre = comboBoxCiudad.SelectedItem.ToString() },
+                act_hotel = GetActHotel()
             };
 
             return hotelToUpdate;
+        }
+
+        private List<act_hotel> GetActHotel()
+        {
+            List<act_hotel> listaActividades = new List<act_hotel>();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                act_hotel actividad = new act_hotel();
+
+                actividad.id_act = Convert.ToInt32(row.Cells[2].Value);
+                actividad.nombre = row.Cells[1].Value.ToString();
+                actividad.grado = Convert.ToInt32(row.Cells[3].Value);
+                actividad.id_ciudad = (int)comboBoxCiudad.SelectedValue;
+                listaActividades.Add(actividad);
+            }
+
+            return listaActividades;
         }
     }
 }
