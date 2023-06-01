@@ -21,7 +21,7 @@ namespace RetoHotelesM06
 
         private void Hoteles_Load(object sender, EventArgs e)
         {
-            bindingSourceHoteles.DataSource = HotelesOrm.Select();
+            actualizar();
         }
 
         private void Añadir_Click(object sender, EventArgs e)
@@ -42,11 +42,6 @@ namespace RetoHotelesM06
                     f.ShowDialog();
                 }
             }
-            else
-            {
-                // No hay celdas seleccionadas
-            }
-
 
         }
 
@@ -73,6 +68,17 @@ namespace RetoHotelesM06
 
         }
 
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
+            String msg = HotelesOrm.DeleteHotel(hotel);
+            MessageBox.Show("Eliminado");
+            actualizar();
+        }
 
+        private void actualizar()
+        {
+            bindingSourceHoteles.DataSource = HotelesOrm.Select();
+        }
     }
 }

@@ -57,6 +57,7 @@
             this.grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -106,7 +107,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(653, 211);
+            this.textBox9.Location = new System.Drawing.Point(621, 211);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(78, 20);
             this.textBox9.TabIndex = 37;
@@ -149,7 +150,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(650, 182);
+            this.label9.Location = new System.Drawing.Point(618, 182);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 13);
             this.label9.TabIndex = 30;
@@ -237,9 +238,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(738, 209);
+            this.button2.Location = new System.Drawing.Point(705, 209);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(29, 23);
+            this.button2.Size = new System.Drawing.Size(29, 25);
             this.button2.TabIndex = 43;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
@@ -297,11 +298,22 @@
             this.actividadesBindingSource.DataSource = typeof(RetoHotelesM06.Models.actividades);
             this.actividadesBindingSource.CurrentChanged += new System.EventHandler(this.actividadesBindingSource_CurrentChanged_1);
             // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(740, 209);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(27, 25);
+            this.buttonEliminar.TabIndex = 46;
+            this.buttonEliminar.Text = "-";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
             // añadirHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 489);
+            this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
@@ -366,5 +378,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grado;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource actividadesBindingSource;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }

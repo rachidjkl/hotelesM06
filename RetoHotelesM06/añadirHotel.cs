@@ -133,8 +133,6 @@ namespace RetoHotelesM06
 
             if (!comprobacionRepit(idAct))
             {
-                
-
                 dataGridView1.Rows.Add();
 
                 int rowIndex = dataGridView1.Rows.Count - 1;
@@ -157,6 +155,16 @@ namespace RetoHotelesM06
                 }
             }
             return result;
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow act = dataGridView1.CurrentRow;
+
+            if (act != null)
+            {
+                dataGridView1.Rows.Remove(act);
+            }
         }
     }
 }

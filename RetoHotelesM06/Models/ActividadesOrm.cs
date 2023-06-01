@@ -16,14 +16,6 @@ namespace RetoHotelesM06.Models
             return _act_hotel;
         }
 
-        public static List<actividades> Select()
-        {
-            List<actividades> _act_hotel = Orm.bd.actividades
-                .ToList();
-
-            return _act_hotel;
-        }
-
         public static int SelectGrado(actividades actividades)
         {
             int grado = Orm.bd.act_hotel

@@ -31,5 +31,16 @@ namespace RetoHotelesM06.Models
             return Orm.MySaveChanges();
         }
 
+        public static string DeleteHotel(hoteles hotel)
+        {
+
+            var hotelToDelete = Orm.bd.hoteles.FirstOrDefault(h => h.id_ciudad == hotel.id_ciudad && h.nombre == hotel.nombre);
+
+            if (hotelToDelete != null)
+            {
+                Orm.bd.hoteles.Remove(hotelToDelete);
+            }
+            return Orm.MySaveChanges();
+        }
     }
 }
