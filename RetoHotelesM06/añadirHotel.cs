@@ -30,7 +30,8 @@ namespace RetoHotelesM06
             textBoxTelefono.Text = hotelSelec.telefono.ToString();
             textBoxCategoria.Text = hotelSelec.categoria.ToString();
             textBoxDireccion.Text = hotelSelec.direccion.ToString();
-            actividadesBindingSource.DataSource = ActividadesOrm.SelectActividades(hotelSelec);
+            CargarActHotel(hotelSelec.act_hotel.ToList());
+            actividadesBindingSource.DataSource = ActividadesOrm.SelectActividades();
             cadenasBindingSource.DataSource = CadenasOrm.Select();
             ciudadesBindingSource.DataSource = CiudadesOrm.SelectCiudades();
         }
@@ -86,14 +87,76 @@ namespace RetoHotelesM06
             {
                 act_hotel actividad = new act_hotel();
 
-                actividad.id_act = Convert.ToInt32(row.Cells[2].Value);
-                actividad.nombre = (string)row.Cells[0].Value;
-                actividad.grado = Convert.ToInt32(row.Cells[5].Value);
+                actividad.id_act = Convert.ToInt32(row.Cells[0].Value);
+                actividad.nombre = row.Cells[1].Value.ToString();
+                actividad.grado = Convert.ToInt32(row.Cells[2].Value);
                 actividad.id_ciudad = (int)comboBoxCiudad.SelectedValue;
-                listaActividades.Add(actividad);
+                listaActividades.Add(actividad);   
             }
 
             return listaActividades;
+        }
+
+        private void CargarActHotel(List<act_hotel> act_Hotel)
+        {
+            foreach (act_hotel act in act_Hotel)
+            {
+                dataGridView1.Rows.Add();
+                int rowIndex = dataGridView1.Rows.Count - 1;
+
+                dataGridView1.Rows[rowIndex].Cells[0].Value = act.id_act;
+                dataGridView1.Rows[rowIndex].Cells[1].Value = act.actividades.descripcion;
+                dataGridView1.Rows[rowIndex].Cells[2].Value = act.grado;
+            }
+        }
+
+        private void actividadesBindingSource_CurrentChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actividades selectedActividad = comboBox1.SelectedItem as actividades;
+
+            if (selectedActividad != null)
+            {
+                textBox9.Text = ActividadesOrm.SelectGrado(selectedActividad).ToString();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int idAct = (int)comboBox1.SelectedValue;
+            string nombre = comboBox1.Text;
+            int grado = int.Parse(textBox9.Text);
+
+            if (!comprobacionRepit(idAct))
+            {
+                
+
+                dataGridView1.Rows.Add();
+
+                int rowIndex = dataGridView1.Rows.Count - 1;
+
+                dataGridView1.Rows[rowIndex].Cells[0].Value = idAct;
+                dataGridView1.Rows[rowIndex].Cells[1].Value = nombre;
+                dataGridView1.Rows[rowIndex].Cells[2].Value = grado;
+            }
+        }
+
+        private Boolean comprobacionRepit(int idAct)
+        {
+            Boolean result = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == idAct)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
         }
     }
 }

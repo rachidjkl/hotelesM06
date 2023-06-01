@@ -35,7 +35,6 @@
             this.cadenasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxTelefono = new System.Windows.Forms.TextBox();
@@ -52,18 +51,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_act = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoteles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actividad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxCiudad
@@ -113,13 +110,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(78, 20);
             this.textBox9.TabIndex = 37;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(477, 211);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(170, 20);
-            this.textBox8.TabIndex = 36;
             // 
             // textBoxDireccion
             // 
@@ -253,70 +243,66 @@
             this.button2.TabIndex = 43;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // actividadesBindingSource
-            // 
-            this.actividadesBindingSource.DataSource = typeof(RetoHotelesM06.Models.act_hotel);
-            this.actividadesBindingSource.CurrentChanged += new System.EventHandler(this.actividadesBindingSource_CurrentChanged);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.id_ciudad,
-            this.id_act,
-            this.actividades,
-            this.hoteles,
-            this.gradoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.actividadesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(432, 258);
+            this.id,
+            this.actividad,
+            this.grado});
+            this.dataGridView1.Location = new System.Drawing.Point(464, 247);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(366, 127);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(303, 150);
             this.dataGridView1.TabIndex = 44;
             // 
-            // nombreDataGridViewTextBoxColumn
+            // id
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.id.HeaderText = "";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
-            // id_ciudad
+            // actividad
             // 
-            this.id_ciudad.DataPropertyName = "id_ciudad";
-            this.id_ciudad.HeaderText = "id_ciudad";
-            this.id_ciudad.Name = "id_ciudad";
+            this.actividad.HeaderText = "nombre";
+            this.actividad.Name = "actividad";
+            this.actividad.ReadOnly = true;
             // 
-            // id_act
+            // grado
             // 
-            this.id_act.DataPropertyName = "id_act";
-            this.id_act.HeaderText = "id_act";
-            this.id_act.Name = "id_act";
+            this.grado.HeaderText = "grado";
+            this.grado.Name = "grado";
+            this.grado.ReadOnly = true;
             // 
-            // actividades
+            // comboBox1
             // 
-            this.actividades.DataPropertyName = "actividades";
-            this.actividades.HeaderText = "actividades";
-            this.actividades.Name = "actividades";
+            this.comboBox1.DataSource = this.actividadesBindingSource;
+            this.comboBox1.DisplayMember = "descripcion";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(477, 211);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 45;
+            this.comboBox1.ValueMember = "id_act";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // hoteles
+            // actividadesBindingSource
             // 
-            this.hoteles.DataPropertyName = "hoteles";
-            this.hoteles.HeaderText = "hoteles";
-            this.hoteles.Name = "hoteles";
-            // 
-            // gradoDataGridViewTextBoxColumn
-            // 
-            this.gradoDataGridViewTextBoxColumn.DataPropertyName = "grado";
-            this.gradoDataGridViewTextBoxColumn.HeaderText = "grado";
-            this.gradoDataGridViewTextBoxColumn.Name = "gradoDataGridViewTextBoxColumn";
+            this.actividadesBindingSource.DataSource = typeof(RetoHotelesM06.Models.actividades);
+            this.actividadesBindingSource.CurrentChanged += new System.EventHandler(this.actividadesBindingSource_CurrentChanged_1);
             // 
             // añadirHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 489);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label10);
@@ -324,7 +310,6 @@
             this.Controls.Add(this.comboBoxCadenaHotel);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBoxDireccion);
             this.Controls.Add(this.textBoxCategoria);
             this.Controls.Add(this.textBoxTelefono);
@@ -344,8 +329,8 @@
             this.Load += new System.EventHandler(this.añadirHotel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,7 +342,6 @@
         private System.Windows.Forms.ComboBox comboBoxCadenaHotel;
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.TextBox textBoxTelefono;
@@ -374,15 +358,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.BindingSource actividadesBindingSource;
         private System.Windows.Forms.BindingSource cadenasBindingSource;
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_ciudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_act;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actividades;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoteles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gradoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actividad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grado;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource actividadesBindingSource;
     }
 }

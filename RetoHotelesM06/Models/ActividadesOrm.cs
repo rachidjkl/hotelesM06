@@ -8,10 +8,9 @@ namespace RetoHotelesM06.Models
 {
     public static class ActividadesOrm
     {
-        public static List<act_hotel> SelectActividades(hoteles hotel)
+        public static List<actividades> SelectActividades()
         {
-            List<act_hotel> _act_hotel = Orm.bd.act_hotel
-                .Where(c => c.id_ciudad == hotel.id_ciudad && c.nombre == hotel.nombre)
+            List<actividades> _act_hotel = Orm.bd.actividades
                 .ToList();
 
             return _act_hotel;
@@ -23,6 +22,16 @@ namespace RetoHotelesM06.Models
                 .ToList();
 
             return _act_hotel;
+        }
+
+        public static int SelectGrado(actividades actividades)
+        {
+            int grado = Orm.bd.act_hotel
+                .Where(c => c.id_act == actividades.id_act)
+                .Select(c => c.grado)
+                .FirstOrDefault();
+
+            return grado;
         }
     }
 }
