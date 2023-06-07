@@ -43,8 +43,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
+            this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox3
             // 
@@ -72,9 +73,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(87, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "label3";
+            this.label3.Text = "Cif";
             // 
             // label2
             // 
@@ -108,6 +109,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AñadirCadena";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AñadirCadena_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

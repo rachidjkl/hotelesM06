@@ -15,25 +15,39 @@ namespace RetoHotelesM06
     public partial class añadirHotel : Form
     {
         public hoteles hotelSelec;
+        public Boolean relleno = true;
         public añadirHotel(hoteles hotel)
         {
             InitializeComponent();
             hotelSelec = hotel;
         }
 
+        public añadirHotel(Boolean relleno)
+        {
+            InitializeComponent();
+            this.relleno = relleno;
+        }
+
         private void añadirHotel_Load(object sender, EventArgs e)
         {
-            textBoxNombre.Text = hotelSelec.nombre.ToString();
-            comboBoxCadenaHotel.SelectedItem = hotelSelec.cadenas;
-            comboBoxCiudad.SelectedItem = hotelSelec.ciudades;
-            textBoxUbicacion.Text = hotelSelec.tipo.ToString();
-            textBoxTelefono.Text = hotelSelec.telefono.ToString();
-            textBoxCategoria.Text = hotelSelec.categoria.ToString();
-            textBoxDireccion.Text = hotelSelec.direccion.ToString();
-            CargarActHotel(hotelSelec.act_hotel.ToList());
+
             actividadesBindingSource.DataSource = ActividadesOrm.SelectActividades();
             cadenasBindingSource.DataSource = CadenasOrm.Select();
             ciudadesBindingSource.DataSource = CiudadesOrm.SelectCiudades();
+
+            if (relleno == true)
+            {
+                textBoxNombre.Text = hotelSelec.nombre.ToString();
+                comboBoxCadenaHotel.SelectedItem = hotelSelec.cadenas;
+                comboBoxCiudad.SelectedItem = hotelSelec.ciudades;
+                comboBoxCiudad.DropDownStyle = ComboBoxStyle.Simple;
+                comboBoxCiudad.Enabled = false;
+                textBoxUbicacion.Text = hotelSelec.tipo.ToString();
+                textBoxTelefono.Text = hotelSelec.telefono.ToString();
+                textBoxCategoria.Text = hotelSelec.categoria.ToString();
+                textBoxDireccion.Text = hotelSelec.direccion.ToString();
+                CargarActHotel(hotelSelec.act_hotel.ToList());
+            }   
         }
 
         private void ciudadesBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -48,18 +62,45 @@ namespace RetoHotelesM06
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            hoteles hotelToUpdate = cogerHotel();
-
-            string msgError = HotelesOrm.UpdateHotel(hotelSelec, hotelToUpdate);
-            if (msgError == "")
+            if (relleno == true)
             {
-                MessageBox.Show("Updated", "actualizado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                hoteles hotelToUpdate = cogerHotel();
+
+                string msgError = HotelesOrm.UpdateHotel(hotelSelec, hotelToUpdate);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Updated", "actualizado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                hoteles hotel = new hoteles();
+                hotel.nombre = textBoxNombre.Text;
+                hotel.id_ciudad = (int)comboBoxCiudad.SelectedValue;
+                hotel.act_hotel = GetActHotel();
+                hotel.categoria = int.Parse(textBoxCategoria.Text);
+                hotel.telefono = int.Parse(textBoxTelefono.Text);
+                hotel.direccion = textBoxDireccion.Text;
+                hotel.cadenas = (cadenas)comboBoxCadenaHotel.SelectedItem;
+                hotel.ciudades = (ciudades)comboBoxCiudad.SelectedItem;
+                hotel.cif = comboBox1.SelectedValue.ToString();
+                hotel.tipo = textBoxUbicacion.Text;
 
+
+                string msgError = HotelesOrm.Add(hotel);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Saved", "guardado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private hoteles cogerHotel()
@@ -71,8 +112,8 @@ namespace RetoHotelesM06
                 telefono = int.Parse(textBoxTelefono.Text),
                 tipo = textBoxUbicacion.Text,
                 categoria = int.Parse(textBoxCategoria.Text),
-                cadenas = new cadenas() { nombre = comboBoxCadenaHotel.SelectedItem.ToString() },
-                ciudades = new ciudades() { nombre = comboBoxCiudad.SelectedItem.ToString() },
+                cadenas = (cadenas)comboBoxCadenaHotel.SelectedItem,
+                ciudades = (ciudades)comboBoxCiudad.SelectedItem,
                 act_hotel = GetActHotel()
             };
 

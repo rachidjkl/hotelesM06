@@ -28,21 +28,19 @@ namespace RetoHotelesM06
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                
                 if (hotelBoo)
                 {
                     hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
-                    añadirHotel f = new añadirHotel(hotel);
+                    añadirHotel f = new añadirHotel(false);
                     f.ShowDialog();
                 }
                 else
                 {
                     cadenas cadena = (cadenas)dataGridView1.CurrentRow.DataBoundItem;
-                    AñadirCadena f = new AñadirCadena(cadena);
+                    AñadirCadena f = new AñadirCadena(false);
                     f.ShowDialog();
                 }
             }
-
         }
 
         private void ButtonHoteles_Click(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace RetoHotelesM06
 
         private void bindingSourceHoteles_CurrentChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonCadenasHoteles_Click(object sender, EventArgs e)
@@ -70,15 +68,46 @@ namespace RetoHotelesM06
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
-            String msg = HotelesOrm.DeleteHotel(hotel);
-            MessageBox.Show("Eliminado");
-            actualizar();
+            if (hotelBoo)
+            {
+                hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
+                String msg = HotelesOrm.DeleteHotel(hotel);
+                MessageBox.Show("Eliminado");
+                actualizar();
+            }
+            else
+            {
+                cadenas cadena = (cadenas)dataGridView1.CurrentRow.DataBoundItem;
+                String msg = CadenasOrm.DeleteCadena(cadena);
+                MessageBox.Show("Eliminado");
+                actualizar();
+            }
+            
         }
 
         private void actualizar()
         {
             bindingSourceHoteles.DataSource = HotelesOrm.Select();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                if (hotelBoo)
+                {
+                    hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
+                    añadirHotel f = new añadirHotel(hotel);
+                    f.ShowDialog();
+                }
+                else
+                {
+                    cadenas cadena = (cadenas)dataGridView1.CurrentRow.DataBoundItem;
+                    AñadirCadena f = new AñadirCadena(cadena);
+                    f.ShowDialog();
+                }
+            }
         }
     }
 }

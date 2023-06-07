@@ -25,6 +25,7 @@ namespace RetoHotelesM06.Models
                 hotelToUpdate.categoria = update.categoria;
                 hotelToUpdate.direccion = update.direccion;
                 hotelToUpdate.act_hotel = update.act_hotel;
+                hotelToUpdate.cadenas = update.cadenas;
 
 
             }
@@ -40,6 +41,13 @@ namespace RetoHotelesM06.Models
             {
                 Orm.bd.hoteles.Remove(hotelToDelete);
             }
+            return Orm.MySaveChanges();
+        }
+
+        public static string Add(hoteles _hoteles)
+        {
+            Orm.bd.hoteles.Add(_hoteles);
+
             return Orm.MySaveChanges();
         }
     }

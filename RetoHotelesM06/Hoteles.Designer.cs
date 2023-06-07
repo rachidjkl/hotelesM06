@@ -32,6 +32,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.ButtonAñadir = new System.Windows.Forms.Button();
+            this.buttonCadenasHoteles = new System.Windows.Forms.Button();
+            this.ButtonHoteles = new System.Windows.Forms.Button();
             this.idciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +48,6 @@
             this.cadenasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceHoteles = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.ButtonAñadir = new System.Windows.Forms.Button();
-            this.buttonCadenasHoteles = new System.Windows.Forms.Button();
-            this.ButtonHoteles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHoteles)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             this.buttonEditar.TabIndex = 1;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // dataGridView1
             // 
@@ -91,6 +92,56 @@
             this.dataGridView1.Size = new System.Drawing.Size(1043, 459);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 44);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Hoteles";
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(1009, 127);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEliminar.TabIndex = 4;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // ButtonAñadir
+            // 
+            this.ButtonAñadir.Location = new System.Drawing.Point(770, 127);
+            this.ButtonAñadir.Name = "ButtonAñadir";
+            this.ButtonAñadir.Size = new System.Drawing.Size(75, 23);
+            this.ButtonAñadir.TabIndex = 5;
+            this.ButtonAñadir.Text = "Añadir";
+            this.ButtonAñadir.UseVisualStyleBackColor = true;
+            this.ButtonAñadir.Click += new System.EventHandler(this.Añadir_Click);
+            // 
+            // buttonCadenasHoteles
+            // 
+            this.buttonCadenasHoteles.Location = new System.Drawing.Point(99, 127);
+            this.buttonCadenasHoteles.Name = "buttonCadenasHoteles";
+            this.buttonCadenasHoteles.Size = new System.Drawing.Size(118, 23);
+            this.buttonCadenasHoteles.TabIndex = 6;
+            this.buttonCadenasHoteles.Text = "Cadenas Hoteles";
+            this.buttonCadenasHoteles.UseVisualStyleBackColor = true;
+            this.buttonCadenasHoteles.Click += new System.EventHandler(this.buttonCadenasHoteles_Click);
+            // 
+            // ButtonHoteles
+            // 
+            this.ButtonHoteles.Location = new System.Drawing.Point(236, 127);
+            this.ButtonHoteles.Name = "ButtonHoteles";
+            this.ButtonHoteles.Size = new System.Drawing.Size(75, 23);
+            this.ButtonHoteles.TabIndex = 7;
+            this.ButtonHoteles.Text = "Hoteles";
+            this.ButtonHoteles.UseVisualStyleBackColor = true;
+            this.ButtonHoteles.Click += new System.EventHandler(this.ButtonHoteles_Click);
             // 
             // idciudadDataGridViewTextBoxColumn
             // 
@@ -156,56 +207,6 @@
             // 
             this.bindingSourceHoteles.DataSource = typeof(RetoHotelesM06.Models.hoteles);
             this.bindingSourceHoteles.CurrentChanged += new System.EventHandler(this.bindingSourceHoteles_CurrentChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 44);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Hoteles";
-            // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.Location = new System.Drawing.Point(1009, 127);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEliminar.TabIndex = 4;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
-            // 
-            // ButtonAñadir
-            // 
-            this.ButtonAñadir.Location = new System.Drawing.Point(770, 127);
-            this.ButtonAñadir.Name = "ButtonAñadir";
-            this.ButtonAñadir.Size = new System.Drawing.Size(75, 23);
-            this.ButtonAñadir.TabIndex = 5;
-            this.ButtonAñadir.Text = "Añadir";
-            this.ButtonAñadir.UseVisualStyleBackColor = true;
-            this.ButtonAñadir.Click += new System.EventHandler(this.Añadir_Click);
-            // 
-            // buttonCadenasHoteles
-            // 
-            this.buttonCadenasHoteles.Location = new System.Drawing.Point(99, 127);
-            this.buttonCadenasHoteles.Name = "buttonCadenasHoteles";
-            this.buttonCadenasHoteles.Size = new System.Drawing.Size(118, 23);
-            this.buttonCadenasHoteles.TabIndex = 6;
-            this.buttonCadenasHoteles.Text = "Cadenas Hoteles";
-            this.buttonCadenasHoteles.UseVisualStyleBackColor = true;
-            this.buttonCadenasHoteles.Click += new System.EventHandler(this.buttonCadenasHoteles_Click);
-            // 
-            // ButtonHoteles
-            // 
-            this.ButtonHoteles.Location = new System.Drawing.Point(236, 127);
-            this.ButtonHoteles.Name = "ButtonHoteles";
-            this.ButtonHoteles.Size = new System.Drawing.Size(75, 23);
-            this.ButtonHoteles.TabIndex = 7;
-            this.ButtonHoteles.Text = "Hoteles";
-            this.ButtonHoteles.UseVisualStyleBackColor = true;
-            this.ButtonHoteles.Click += new System.EventHandler(this.ButtonHoteles_Click);
             // 
             // Hoteles
             // 
