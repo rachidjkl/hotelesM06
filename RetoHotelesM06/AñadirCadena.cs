@@ -47,12 +47,31 @@ namespace RetoHotelesM06
             cadenas update = cogerCadena();
             if (relleno == true)
             {
-                CadenasOrm.UpdateCadena(cadenaSele, update);
+                string msgError = CadenasOrm.UpdateCadena(cadenaSele, update);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Updated", "actualizado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                CadenasOrm.AddCadena(update);
+                String msgError = CadenasOrm.AddCadena(update);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Saved", "guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            
         }
 
         private cadenas cogerCadena()
