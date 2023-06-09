@@ -70,6 +70,7 @@ namespace RetoHotelesM06
                 if (msgError == "")
                 {
                     MessageBox.Show("Updated", "actualizado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
                 }
                 else
                 {

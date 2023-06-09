@@ -33,6 +33,7 @@ namespace RetoHotelesM06
                     hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
                     añadirHotel f = new añadirHotel(false);
                     f.ShowDialog();
+                    actualizar();
                 }
                 else
                 {
