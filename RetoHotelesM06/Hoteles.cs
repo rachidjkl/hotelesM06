@@ -21,7 +21,7 @@ namespace RetoHotelesM06
 
         private void Hoteles_Load(object sender, EventArgs e)
         {
-            actualizar();
+            actualizarHotel();
         }
 
         private void Añadir_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace RetoHotelesM06
                     hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
                     añadirHotel f = new añadirHotel(false);
                     f.ShowDialog();
-                    actualizar();
+                    actualizarHotel();
                 }
                 else
                 {
@@ -74,19 +74,18 @@ namespace RetoHotelesM06
                 hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
                 String msg = HotelesOrm.DeleteHotel(hotel);
                 MessageBox.Show("Eliminado");
-                actualizar();
+                actualizarHotel();
             }
             else
             {
                 cadenas cadena = (cadenas)dataGridView1.CurrentRow.DataBoundItem;
                 String msg = CadenasOrm.DeleteCadena(cadena);
                 MessageBox.Show("Eliminado");
-                actualizar();
             }
             
         }
 
-        private void actualizar()
+        private void actualizarHotel()
         {
             bindingSourceHoteles.DataSource = HotelesOrm.Select();
         }
@@ -101,7 +100,7 @@ namespace RetoHotelesM06
                     hoteles hotel = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
                     añadirHotel f = new añadirHotel(hotel);
                     f.ShowDialog();
-                    actualizar();
+                    actualizarHotel();
                 }
                 else
                 {
