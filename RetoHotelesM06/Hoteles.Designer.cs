@@ -37,18 +37,21 @@
             this.ButtonAñadir = new System.Windows.Forms.Button();
             this.buttonCadenasHoteles = new System.Windows.Forms.Button();
             this.ButtonHoteles = new System.Windows.Forms.Button();
-            this.idciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dir_fis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cadenasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceHoteles = new System.Windows.Forms.BindingSource(this.components);
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acthotelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cadenasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceHoteles = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHoteles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,14 +79,11 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idciudadDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.categoriaDataGridViewTextBoxColumn,
             this.direccionDataGridViewTextBoxColumn,
             this.telefonoDataGridViewTextBoxColumn,
             this.tipoDataGridViewTextBoxColumn,
-            this.cifDataGridViewTextBoxColumn,
-            this.acthotelDataGridViewTextBoxColumn,
             this.cadenasDataGridViewTextBoxColumn,
             this.ciudadesDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSourceHoteles;
@@ -92,6 +92,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1043, 459);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // label1
             // 
@@ -143,11 +144,39 @@
             this.ButtonHoteles.UseVisualStyleBackColor = true;
             this.ButtonHoteles.Click += new System.EventHandler(this.ButtonHoteles_Click);
             // 
-            // idciudadDataGridViewTextBoxColumn
+            // dataGridView2
             // 
-            this.idciudadDataGridViewTextBoxColumn.DataPropertyName = "id_ciudad";
-            this.idciudadDataGridViewTextBoxColumn.HeaderText = "id_ciudad";
-            this.idciudadDataGridViewTextBoxColumn.Name = "idciudadDataGridViewTextBoxColumn";
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dir_fis});
+            this.dataGridView2.DataSource = this.cadenasBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(41, 156);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1043, 459);
+            this.dataGridView2.TabIndex = 8;
+            // 
+            // dir_fis
+            // 
+            this.dir_fis.DataPropertyName = "dir_fis";
+            this.dir_fis.HeaderText = "dir_fis";
+            this.dir_fis.Name = "dir_fis";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // cadenasBindingSource
+            // 
+            this.cadenasBindingSource.DataSource = typeof(RetoHotelesM06.Models.cadenas);
+            // 
+            // bindingSourceHoteles
+            // 
+            this.bindingSourceHoteles.DataSource = typeof(RetoHotelesM06.Models.hoteles);
+            this.bindingSourceHoteles.CurrentChanged += new System.EventHandler(this.bindingSourceHoteles_CurrentChanged);
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -179,40 +208,24 @@
             this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
             this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
             // 
-            // cifDataGridViewTextBoxColumn
-            // 
-            this.cifDataGridViewTextBoxColumn.DataPropertyName = "cif";
-            this.cifDataGridViewTextBoxColumn.HeaderText = "cif";
-            this.cifDataGridViewTextBoxColumn.Name = "cifDataGridViewTextBoxColumn";
-            // 
-            // acthotelDataGridViewTextBoxColumn
-            // 
-            this.acthotelDataGridViewTextBoxColumn.DataPropertyName = "act_hotel";
-            this.acthotelDataGridViewTextBoxColumn.HeaderText = "act_hotel";
-            this.acthotelDataGridViewTextBoxColumn.Name = "acthotelDataGridViewTextBoxColumn";
-            // 
             // cadenasDataGridViewTextBoxColumn
             // 
-            this.cadenasDataGridViewTextBoxColumn.DataPropertyName = "cadenas";
+            this.cadenasDataGridViewTextBoxColumn.DataPropertyName = "cif";
             this.cadenasDataGridViewTextBoxColumn.HeaderText = "cadenas";
             this.cadenasDataGridViewTextBoxColumn.Name = "cadenasDataGridViewTextBoxColumn";
             // 
             // ciudadesDataGridViewTextBoxColumn
             // 
-            this.ciudadesDataGridViewTextBoxColumn.DataPropertyName = "ciudades";
+            this.ciudadesDataGridViewTextBoxColumn.DataPropertyName = "id_ciudad";
             this.ciudadesDataGridViewTextBoxColumn.HeaderText = "ciudades";
             this.ciudadesDataGridViewTextBoxColumn.Name = "ciudadesDataGridViewTextBoxColumn";
-            // 
-            // bindingSourceHoteles
-            // 
-            this.bindingSourceHoteles.DataSource = typeof(RetoHotelesM06.Models.hoteles);
-            this.bindingSourceHoteles.CurrentChanged += new System.EventHandler(this.bindingSourceHoteles_CurrentChanged);
             // 
             // Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 707);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.ButtonHoteles);
             this.Controls.Add(this.buttonCadenasHoteles);
             this.Controls.Add(this.ButtonAñadir);
@@ -225,6 +238,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Hoteles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHoteles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,14 +257,15 @@
         private System.Windows.Forms.Button buttonCadenasHoteles;
         private System.Windows.Forms.Button ButtonHoteles;
         private System.Windows.Forms.BindingSource bindingSourceHoteles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idciudadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dir_fis;
+        private System.Windows.Forms.BindingSource cadenasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cifDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acthotelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cadenasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadesDataGridViewTextBoxColumn;
     }

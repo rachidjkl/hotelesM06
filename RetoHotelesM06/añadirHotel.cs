@@ -42,6 +42,7 @@ namespace RetoHotelesM06
                 comboBoxCiudad.SelectedItem = hotelSelec.ciudades;
                 comboBoxCiudad.DropDownStyle = ComboBoxStyle.Simple;
                 comboBoxCiudad.Enabled = false;
+                textBoxNombre.Enabled = false;
                 textBoxUbicacion.Text = hotelSelec.tipo.ToString();
                 textBoxTelefono.Text = hotelSelec.telefono.ToString();
                 textBoxCategoria.Text = hotelSelec.categoria.ToString();
@@ -79,28 +80,37 @@ namespace RetoHotelesM06
             }
             else
             {
-                hoteles hotel = new hoteles();
-                hotel.nombre = textBoxNombre.Text;
-                hotel.id_ciudad = (int)comboBoxCiudad.SelectedValue;
-                hotel.act_hotel = GetActHotel();
-                hotel.categoria = int.Parse(textBoxCategoria.Text);
-                hotel.telefono = int.Parse(textBoxTelefono.Text);
-                hotel.direccion = textBoxDireccion.Text;
-                hotel.cadenas = (cadenas)comboBoxCadenaHotel.SelectedItem;
-                hotel.ciudades = (ciudades)comboBoxCiudad.SelectedItem;
-                hotel.cif = comboBox1.SelectedValue.ToString();
-                hotel.tipo = textBoxUbicacion.Text;
-
-
-                string msgError = HotelesOrm.Add(hotel);
-                if (msgError == "")
+                if (textBoxNombre.Text == "" || textBoxCategoria.Text == "" || textBoxTelefono.Text == "" || textBoxDireccion.Text == "")
                 {
-                    MessageBox.Show("Saved", "guardado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show("Algun campo vacio");
                 }
                 else
                 {
-                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    hoteles hotel = new hoteles();
+                    hotel.nombre = textBoxNombre.Text;
+                    hotel.id_ciudad = (int)comboBoxCiudad.SelectedValue;
+                    hotel.act_hotel = GetActHotel();
+                    hotel.categoria = int.Parse(textBoxCategoria.Text);
+                    hotel.telefono = int.Parse(textBoxTelefono.Text);
+                    hotel.direccion = textBoxDireccion.Text;
+                    hotel.cadenas = (cadenas)comboBoxCadenaHotel.SelectedItem;
+                    hotel.ciudades = (ciudades)comboBoxCiudad.SelectedItem;
+                    hotel.cif = comboBox1.SelectedValue.ToString();
+                    hotel.tipo = textBoxUbicacion.Text;
+
+
+                    string msgError = HotelesOrm.Add(hotel);
+                    if (msgError == "")
+                    {
+                        MessageBox.Show("Saved", "guardado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else
+                    {
+                        MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RetoHotelesM06.Models
 {
@@ -42,6 +43,12 @@ namespace RetoHotelesM06.Models
                 Orm.bd.cadenas.Remove(cadenaToDelete);
             }
             return Orm.MySaveChanges();
+        }
+
+        public static string SelectNombreCadenaById(string id)
+        {
+            var cadena = Orm.bd.cadenas.FirstOrDefault(c => c.cif == id);
+            return cadena != null ? cadena.nombre : string.Empty;
         }
     }
 }

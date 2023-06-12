@@ -40,6 +40,7 @@ namespace RetoHotelesM06
             textBox3.Text = cadena.cif;
             textBox2.Text = cadena.dir_fis;
             textBox1.Text = cadena.nombre;
+            textBox3.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,16 +61,25 @@ namespace RetoHotelesM06
             }
             else
             {
-                String msgError = CadenasOrm.AddCadena(update);
-                if (msgError == "")
+                if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
                 {
-                    MessageBox.Show("Saved", "guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    this.Close();
+                    MessageBox.Show("Datos vacios");
+
                 }
                 else
                 {
-                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    String msgError = CadenasOrm.AddCadena(update);
+                    if (msgError == "")
+                    {
+                        MessageBox.Show("Saved", "guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                
             }
             
         }
